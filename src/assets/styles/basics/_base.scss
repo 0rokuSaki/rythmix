@@ -31,10 +31,13 @@ h6 {
   line-height: 1;
 }
 
-section,
-main,
-footer {
-  padding: 5px;
+div,
+nav,
+header,
+footer,
+article,
+section {
+  border-radius: $container-border-radius;
 }
 
 img {

@@ -16,3 +16,11 @@
 @import "views/HomePage";
 
 // Components
+
+// NavPanel
+@import "cmps/NavPanel/nav-panel";
+@import "cmps/NavPanel/nav-panel-header";
+@import "cmps/NavPanel/my-library-panel";
+
+// PlayerPanel
+@import "cmps/PlayerPanel/player-panel";

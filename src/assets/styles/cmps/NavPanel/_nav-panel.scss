@@ -1,0 +1,6 @@
+.nav-panel {
+  width: 350px;
+  display: grid;
+  grid-template-rows: 112px 1fr;
+  gap: $grid-gap;
+}

@@ -1,5 +1,8 @@
 .main-container {
   display: grid;
+  gap: $grid-gap;
+  height: 100dvh;
+  max-height: 100dvh;
 
   @include for-narrow-layout {
     grid-template-rows:
@@ -11,20 +14,20 @@
 
   @include for-normal-layout {
     grid-template-rows:
-      auto
+      1fr
       auto;
     grid-template-columns:
       auto
-      auto;
+      1fr;
   }
 
   @include for-wide-layout {
     grid-template-rows:
-      auto
+      1fr
       auto;
     grid-template-columns:
       auto
-      auto;
+      1fr;
   }
 }
 
