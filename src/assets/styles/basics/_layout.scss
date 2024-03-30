@@ -1,38 +1,35 @@
 .main-container {
-    display: grid;
-    grid-template-columns: 20px 1fr 20px;
+  display: grid;
 
-    > * {
-        grid-column: 2;
+  @include for-narrow-layout {
+    grid-template-rows:
+      auto
+      1fr
+      auto;
+    grid-template-columns: 1fr;
+  }
 
-        &.full {
-            grid-column: 1 /-1;
-        }
-    }
+  @include for-normal-layout {
+    grid-template-rows:
+      auto
+      auto;
+    grid-template-columns:
+      auto
+      auto;
+  }
 
-    @include for-narrow-layout {
-        grid-template-columns: 
-            minmax(20px, 1fr)
-            minmax(auto, $mobile-breakpoint)
-            minmax(20px, 1fr);
-    }
-    @include for-normal-layout {
-        grid-template-columns: 
-            minmax(20px, 1fr)
-            minmax(auto, $narrow-breakpoint)
-            minmax(20px, 1fr);
-    }
-    @include for-wide-layout {
-        grid-template-columns: 
-            minmax(20px, 1fr)
-            minmax(auto, $normal-breakpoint)
-            minmax(20px, 1fr);
-    }
+  @include for-wide-layout {
+    grid-template-rows:
+      auto
+      auto;
+    grid-template-columns:
+      auto
+      auto;
+  }
 }
 
 .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
 }
-
