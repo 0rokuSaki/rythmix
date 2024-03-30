@@ -1,4 +1,11 @@
 .player-panel {
-  height: 72px;
-  grid-column: 1 / -1;
+  @include for-narrow-layout {
+    display: none;
+  }
+
+  @include for-normal-layout {
+    display: flex;
+    height: 72px;
+    grid-column: 1 / -1;
+  }
 }

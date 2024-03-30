@@ -1,3 +1,11 @@
 .home-page {
   background-color: $bg-clr-secondary;
+
+  @include for-narrow-layout {
+    grid-column: 1;
+  }
+
+  @include for-normal-layout {
+    grid-column: 2;
+  }
 }

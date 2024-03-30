@@ -6,22 +6,12 @@
 
   @include for-narrow-layout {
     grid-template-rows:
-      auto
       1fr
       auto;
     grid-template-columns: 1fr;
   }
 
   @include for-normal-layout {
-    grid-template-rows:
-      1fr
-      auto;
-    grid-template-columns:
-      auto
-      1fr;
-  }
-
-  @include for-wide-layout {
     grid-template-rows:
       1fr
       auto;
