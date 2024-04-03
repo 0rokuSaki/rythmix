@@ -19,14 +19,18 @@ export function App() {
   return (
     <Provider store={store}>
       <Router>
-        <main className="main-container p-8">
+        <section className="main-app">
           <NavPanel />
-          <Routes>
-            <Route exact={true} element={<HomePage />} path="/" />
-            <Route exact={true} element={<StationDetails />} path="/station/:stationId" />
-          </Routes>
+          <main className="main-view overflow-hidden radiused">
+            <div className="scrollable-y">
+              <Routes>
+                <Route exact={true} element={<HomePage />} path="/" />
+                <Route exact={true} element={<StationDetails />} path="/station/:stationId" />
+              </Routes>
+            </div>
+          </main>
           <PlayerPanel />
-        </main>
+        </section>
       </Router>
     </Provider>
   );

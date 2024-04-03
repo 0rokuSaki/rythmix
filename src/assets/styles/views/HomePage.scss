@@ -1,6 +1,4 @@
 .home-page {
-  background-color: $bg-clr-secondary;
-
   @include for-narrow-layout {
     grid-column: 1;
   }

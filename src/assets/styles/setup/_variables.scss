@@ -8,6 +8,13 @@ $elem-clr-primary: #fff;
 $elem-clr-secondary: #a7a7a7;
 $elem-clr-accent: #1fdf64;
 
+// Scrollbar
+$scrollbar-bg-clr: $bg-clr-secondary;
+$scrollbar-thumb-clr: #595959;
+$scrollbar-hover-clr: #888888;
+$scrollbar-drag-clr: #b7b7b7;
+$scrollbar-width: 12px;
+
 // Border radius
 $container-border-radius: 8px;
 $btn-round-border-radius: 50%;

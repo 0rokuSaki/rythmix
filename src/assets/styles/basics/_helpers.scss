@@ -93,3 +93,48 @@
 .p-16 {
   padding: 16px;
 }
+
+// Background
+.bg-transparent {
+  background-color: transparent;
+}
+
+.bg-inherit {
+  background-color: inherit;
+}
+
+// Border radius
+.radiused {
+  border-radius: $container-border-radius;
+}
+
+// Overflow
+.overflow-hidden {
+  overflow: hidden;
+}
+
+// Scroll
+.scrollable-y {
+  overflow-y: auto;
+  height: 100%;
+
+  &::-webkit-scrollbar {
+    width: $scrollbar-width;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background-color: $bg-clr-secondary;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: $scrollbar-thumb-clr;
+  }
+  
+  &::-webkit-scrollbar-thumb:hover {
+    background: $scrollbar-hover-clr;
+  }
+  
+  &::-webkit-scrollbar-thumb:active {
+    background: $scrollbar-drag-clr;
+  }
+}
