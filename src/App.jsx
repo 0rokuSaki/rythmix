@@ -14,6 +14,7 @@ import { StationDetails } from "./pages/StationDetails";
 // Components
 import { NavPanel } from "./cmps/NavPanel/NavPanel";
 import { PlayerPanel } from "./cmps/PlayerPanel/PlayerPanel";
+import { TopBar } from "./cmps/TopBar/TopBar";
 
 export function App() {
   return (
@@ -23,6 +24,7 @@ export function App() {
           <NavPanel />
           <main className="main-view overflow-hidden radiused">
             <div className="scrollable-y">
+              <TopBar />
               <Routes>
                 <Route exact={true} element={<HomePage />} path="/" />
                 <Route exact={true} element={<StationDetails />} path="/station/:stationId" />

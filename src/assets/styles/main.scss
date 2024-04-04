@@ -15,7 +15,6 @@
 @import "views/HomePage";
 
 // Components
-
 // NavPanel
 @import "cmps/NavPanel/nav-panel";
 @import "cmps/NavPanel/nav-panel-header";
@@ -23,3 +22,6 @@
 
 // PlayerPanel
 @import "cmps/PlayerPanel/player-panel";
+
+// MainViewHeader
+@import "cmps/top-bar";
