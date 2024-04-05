@@ -1,16 +1,16 @@
-export const SET_STATION = 'SET_STATION'
+export const SET_STATIONS = 'SET_STATIONS'
 
 
 const initialState = {
-    station: null
+    stations: null
 }
 
 export function stationReducer(state = initialState, cmd = {}) {
     switch (cmd.type) {
-        case SET_STATION:
+        case SET_STATIONS:
             return {
                 ...state,
-                station : cmd.station
+                stations : cmd.station
             }
 
         default:
