@@ -1,6 +1,5 @@
 import { storageService } from "./async-storage.service.js";
 import { utilService } from "./util.service.js";
-import { userService } from "./user.service.js";
 
 const STORAGE_KEY = "station";
 
@@ -12,6 +11,7 @@ export const stationService = {
   getEmptyStation,
 };
 window.stationService = stationService; // TODO: For debug purpose; remove later.
+_createDemoData();
 
 /**
  * Retrieves a list of stations from storage, optionally filtered by a criteria.

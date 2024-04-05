@@ -4,7 +4,9 @@ export function StationImage({ url = "", size = "medium" }) {
   if (url)
     return (
       <div className="station-image br-0">
-        <div className="aspect-ratio-box"></div>
+        <div className="aspect-ratio-box">
+          <img src={url} alt="" />
+        </div>
       </div>
     );
   else
