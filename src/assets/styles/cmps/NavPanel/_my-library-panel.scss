@@ -7,10 +7,17 @@
   padding: 20px;
 
 }
-h3 {
-  margin: 0 0 20px; 
+.library-title{
+  padding: 10px 0 30px 0;
+
+  h3{
+    font-size: 1rem;
+    padding: 0 0 0 10px;
+  }
 }
+
 .create-list-container {
+  width: 100%;
   background-color: #242424;
   padding: 20px;
   border-radius: 8px; 
