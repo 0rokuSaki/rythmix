@@ -32,8 +32,8 @@ export function StationDetails() {
       <header className="station-details-header flex row align-center gap-20">
         <StationImage url={station.songs[0].imgUrl} size="large" />
         <div className="station-info-wrapper flex column">
-          <h6 className="font-medium fs16">Playlist</h6>
-          <h2 className="font-black fs70">{station.name}</h2>
+          <h6 className="font-medium">Playlist</h6>
+          <h2 className="font-black">{station.name}</h2>
           <h6 className="fs18">{station.createdBy.fullname}</h6>
         </div>
       </header>

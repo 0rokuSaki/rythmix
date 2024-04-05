@@ -8,7 +8,6 @@ export const utilService = {
   loadFromStorage,
   getAssetSrc,
   formatDate,
-  getAverageRGB,
 };
 
 function makeId(length = 6) {

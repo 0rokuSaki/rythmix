@@ -11,7 +11,7 @@ export function SongList({ songs = [] }) {
         <span className="song-duration flex row align-center justify-center"><DurationIcon /></span>
       </header>
       <hr />
-      {songs.map((song, idx) => <SongPreview key={song._id} song={song} number={idx + 1} />)}
+      {songs.map((song, idx) => <SongPreview key={song.id} song={song} number={idx + 1} />)}
     </section>
   );
 }
