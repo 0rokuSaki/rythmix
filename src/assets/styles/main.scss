@@ -13,15 +13,12 @@
 
 // Views
 @import "views/HomePage";
+@import "views/StationDetails/station-details";
 
 // Components
-// NavPanel
 @import "cmps/NavPanel/nav-panel";
 @import "cmps/NavPanel/nav-panel-header";
 @import "cmps/NavPanel/my-library-panel";
-
-// PlayerPanel
 @import "cmps/PlayerPanel/player-panel";
-
-// MainViewHeader
 @import "cmps/top-bar";
+@import "cmps/station-image";

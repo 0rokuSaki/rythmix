@@ -5,6 +5,9 @@
 .fs14 {
   font-size: rem(14px);
 }
+.fs16 {
+  font-size: rem(16px);
+}
 .fs18 {
   font-size: rem(18px);
 }
@@ -19,6 +22,18 @@
 }
 .fs30 {
   font-size: rem(30px);
+}
+.fs40 {
+  font-size: rem(40px);
+}
+.fs50 {
+  font-size: rem(50px);
+}
+.fs60 {
+  font-size: rem(60px);
+}
+.fs70 {
+  font-size: rem(70px);
 }
 
 // Font weight classes
@@ -46,6 +61,10 @@
   font-weight: $font-weight-bold;
 }
 
+.font-black {
+  font-weight: $font-weight-black;
+}
+
 // flex helpers
 .flex {
   display: flex;
@@ -61,6 +80,18 @@
   }
   &.align-center {
     align-items: center;
+  }
+  &.gap-4 {
+    gap: 4px;
+  }
+  &.gap-8 {
+    gap: 8px;
+  }
+  &.gap-16 {
+    gap: 16px;
+  }
+  &.gap-20 {
+    gap: 20px;
   }
 }
 
@@ -89,26 +120,38 @@
 .p-0 {
   padding: 0;
 }
-
 .p-2 {
   padding: 2px;
 }
-
 .p-4 {
   padding: 4px;
 }
-
 .p-8 {
   padding: 8px;
 }
-
 .p-12 {
   padding: 12px;
 }
-
 .p-16 {
   padding: 16px;
 }
+.ph-4 {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.ph-8 {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.ph-16 {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.ph-20 {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 
 // Margin
 .ml-auto {
@@ -129,6 +172,7 @@
   border-radius: $container-border-radius;
 }
 
+.br-0,
 .br-none {
   border-radius: 0;
 }

@@ -3,9 +3,15 @@
   position: sticky;
   top: 0;
 
-  @include for-narrow-layout {
+  @include for-mobile-layout {
     nav {
       display: none;
+    }
+  }
+
+  @include for-narrow-layout {
+    nav {
+      display: flex;
     }
   }
 

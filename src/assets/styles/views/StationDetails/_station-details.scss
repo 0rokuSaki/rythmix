@@ -1,0 +1,13 @@
+.station-details {
+  @include for-mobile-layout {
+    
+  }
+
+  @include for-narrow-layout {
+
+  }
+
+  @include for-normal-layout {
+
+  }
+}

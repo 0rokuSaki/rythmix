@@ -9,7 +9,7 @@ import { store } from "./store/store";
 
 // Pages
 import { HomePage } from "./pages/HomePage"; // TODO: For testing purpose; remove later.
-import { StationDetails } from "./pages/StationDetails";
+import { StationDetails } from "./pages/StationDetails/StationDetails";
 
 // Components
 import { NavPanel } from "./cmps/NavPanel/NavPanel";

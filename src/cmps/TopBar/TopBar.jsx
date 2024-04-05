@@ -1,5 +1,5 @@
-import { LeftArrow } from "./LeftArrow";
-import { RightArrow } from "./RightArrow";
+import { LeftArrow } from "../icons/LeftArrow";
+import { RightArrow } from "../icons/RightArrow";
 
 export function TopBar() {
   return (

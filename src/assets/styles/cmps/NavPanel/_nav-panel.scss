@@ -1,14 +1,22 @@
 .nav-panel {
-  @include for-narrow-layout {
-    width: 100%;
+  gap: $grid-gap;
+  width: 350px;
+
+  @include for-mobile-layout {
     grid-row: 2;
+    width: 100%;
   }
 
-  @include for-normal-layout {
+  @include for-narrow-layout {
+    grid-row: 1;
     width: 350px;
+    display: grid;
+    grid-template-rows: 112px 1fr;
+  }
+  
+  @include for-normal-layout {
     grid-row: 1;
     display: grid;
     grid-template-rows: 112px 1fr;
-    gap: $grid-gap;
   }
 }
