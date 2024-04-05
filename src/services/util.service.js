@@ -8,6 +8,7 @@ export const utilService = {
   loadFromStorage,
   getAssetSrc,
   formatDate,
+  getAverageRGB,
 };
 
 function makeId(length = 6) {
@@ -112,10 +113,17 @@ function getAssetSrc(name) {
  * @returns {string} A formatted date string.
  */
 function formatDate(timestamp) {
+  // Array containing short names of months
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+  // Create a Date object from the provided timestamp
   const date = new Date(timestamp);
-  const month = months[date.getMonth()];
-  const day = date.getDate();
-  const year = date.getFullYear();
+
+  // Extract month, day, and year from the Date object
+  const month = months[date.getMonth()]; // Get month name abbreviation
+  const day = date.getDate(); // Get day of the month
+  const year = date.getFullYear(); // Get full year
+
+  // Format the date string
   return `${month} ${day}, ${year}`;
 }

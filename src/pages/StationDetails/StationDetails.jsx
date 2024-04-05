@@ -1,5 +1,5 @@
 // React
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 // Components
@@ -26,7 +26,7 @@ export function StationDetails() {
     }
   }
 
-  if (!station) return <div>Loading...</div>
+  if (!station) return <div>Loading...</div>;
   return (
     <section className="station-details">
       <header className="station-details-header flex row align-center gap-20">
@@ -38,7 +38,7 @@ export function StationDetails() {
         </div>
       </header>
       <main>
-        <SongList songs={station.songs}/>
+        <SongList songs={station.songs} />
       </main>
     </section>
   );
