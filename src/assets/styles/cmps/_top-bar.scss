@@ -2,6 +2,7 @@
   background-color: $bg-clr-secondary;
   position: sticky;
   top: 0;
+  z-index: 1;
 
   @include for-mobile-layout {
     nav {

@@ -9,6 +9,7 @@ export const stationService = {
   save,
   remove,
   getEmptyStation,
+  getEmptySong,
 };
 window.stationService = stationService; // TODO: For debug purpose; remove later.
 _createDemoData();
@@ -80,23 +81,7 @@ function getEmptyStation() {
       imgUrl: "",
     },
     likedByUsers: [],
-    songs: [
-      {
-        id: "",
-        title: "",
-        url: "",
-        imgUrl: "",
-        addedBy: "",
-        addedAt: 0,
-      },
-      {
-        id: "",
-        title: "",
-        url: "",
-        imgUrl: "",
-        addedBy: {},
-      },
-    ],
+    songs: [],
     msgs: [
       {
         id: "",
@@ -107,6 +92,22 @@ function getEmptyStation() {
   };
 
   return station;
+}
+
+/**
+ * Creates and returns an empty song object.
+ * @returns {Object} An empty song object with default properties.
+ */
+function getEmptySong() {
+  let song = {
+    id: "",
+    title: "",
+    url: "",
+    imgUrl: "",
+    addedBy: "",
+    addedAt: 0,
+  };
+  return song;
 }
 
 /**
@@ -147,7 +148,8 @@ function _createDemoData() {
             title: "The JB's - Pass The Peas",
             url: "youtube/song.mp4",
             imgUrl: "https://i.ytimg.com/vi/mUkfiLjooxs/mqdefault.jpg",
-            addedBy: {},
+            addedBy: "SomeOne",
+            addedAt: 162521795362,
           },
         ],
         msgs: [

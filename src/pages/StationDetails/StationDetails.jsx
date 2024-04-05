@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 // Components
 import { StationImage } from "../../cmps/StationImage";
+import { SongList } from "../../cmps/SongList/SongList";
 
 // Services
 import { stationService } from "../../services/station.service";
@@ -27,19 +28,17 @@ export function StationDetails() {
 
   if (!station) return <div>Loading...</div>
   return (
-    <section className="station-details ph-20">
-      <header className="flex row align-center gap-20">
+    <section className="station-details">
+      <header className="station-details-header flex row align-center gap-20">
         <StationImage url={station.songs[0].imgUrl} size="large" />
         <div className="station-info-wrapper flex column">
           <h6 className="font-medium fs16">Playlist</h6>
-          <h2 className="font-black fs70">My Playlist</h2>
-          <Link>User Name</Link>
+          <h2 className="font-black fs70">{station.name}</h2>
+          <h6 className="fs18">{station.createdBy.fullname}</h6>
         </div>
       </header>
       <main>
-        <ul>
-
-        </ul>
+        <SongList songs={station.songs}/>
       </main>
     </section>
   );
