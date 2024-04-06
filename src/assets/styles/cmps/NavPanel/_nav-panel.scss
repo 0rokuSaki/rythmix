@@ -1,6 +1,7 @@
 .nav-panel {
   gap: $grid-gap;
   width: 350px;
+  height: 100%;
 
   @include for-mobile-layout {
     grid-row: 2;

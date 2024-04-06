@@ -45,12 +45,12 @@ export function MyLibraryPanel() {
 
   return (
     <section className="my-library-panel overflow-hidden">
-      <div className="scrollable-y">
+      <div className="scrollable-y p-16">
         <div className="library-title flex row align-center m-0 w-100">
           <LibraryIcon />
           <h3>Your Library</h3>
         </div>
-        {!showStation && <div className="create-list-container">
+        {!showStation && <div className="create-list-container w-100">
           <h4>Create your first playlist</h4>
           <h5>It's easy, we'll help you</h5>
           <button onClick={onClickBtn}>
