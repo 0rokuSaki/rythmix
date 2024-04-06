@@ -31,7 +31,8 @@ export function MyLibraryPanel() {
   async function onClickBtn(){
     setShowStation(showStation =>!showStation)
     const station = stationService.getEmptyStation()
-    station.name ='My playlist'
+    station.name =`My playlist #${stations.length}`
+    console.log(station.name)
     try {
         const newStation =await stationService.save(station)
         setStations(prevStations => [...prevStations, newStation] )
@@ -39,6 +40,15 @@ export function MyLibraryPanel() {
     } catch(err){
         console.log('err',err)
     }
+
+    function onRemoveStation(stationId) {
+      stationService.remove(stationId)
+      try{
+          setStations(prevStations => prevStations.filter(station => station._id !== stationId))
+        }catch(err){
+            console.log('cant delete err',err)
+          }
+  }
 
 
   }
@@ -57,7 +67,6 @@ export function MyLibraryPanel() {
             Create playlist
           </button>
         </div>}
-
         {showStation && <StationList stations={stations} />}
       </div>
     </section>
