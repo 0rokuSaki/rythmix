@@ -7,7 +7,7 @@ export function SongPreview({song = stationService.getEmptySong(), number = 0}) 
   const authorName = title[0].trim();
   const songName = title[1].trim();
 
-  return <article className="song-preview pv-8 fs13">
+  return <article className="song-preview song-hover pv-8 fs13">
     <span className="flex align-center justify-center">{number}</span>
     <span className="title-wrapper flex row align-center justify-start gap-12">
       <img className="br-4" src={song.imgUrl} alt="" />

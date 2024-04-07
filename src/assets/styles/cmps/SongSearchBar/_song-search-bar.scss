@@ -1,0 +1,31 @@
+.song-search-bar {
+  .input-wrapper {
+    background-color: change-opacity($elem-clr-secondary, -0.85);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    padding: 8px 32px 8px 0px;
+    margin-top: 24px;
+    width: 332px;
+  }
+
+  svg {
+    fill: lighten($elem-clr-secondary, 10%);
+    margin: 0px 8px;
+  }
+
+  input[type="text"] {
+    caret-color: lighten($elem-clr-secondary, 10%);
+    color: lighten($elem-clr-secondary, 10%);
+    font-size: rem(14px);
+    padding: 0;
+    height: 24px;
+  }
+
+  input[type="text"]::placeholder {
+    color: lighten($elem-clr-secondary, 10%);
+    font-size: rem(14px);
+  }
+
+  input[type="text"]:focus {
+    outline: none;
+  }
+}

@@ -37,13 +37,4 @@
       fill: $elem-clr-secondary;
     }
   }
-
-  hr {
-    border: none;
-    border-top: 1px solid;
-    border-color: rgba(167, 167, 167, 0.25);
-    grid-column: 1 / -1;
-    width: 100%;
-    margin-top: 0;
-  }
 }

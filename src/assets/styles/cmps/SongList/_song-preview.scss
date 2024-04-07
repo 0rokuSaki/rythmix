@@ -21,10 +21,6 @@
     }
   }
 
-  &:hover {
-    background-color: change-opacity($elem-clr-secondary, -0.8);
-  }
-
   &:active {
     background-color: change-opacity($elem-clr-secondary, -0.5);
   }

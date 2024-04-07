@@ -174,9 +174,12 @@
 .ml-auto {
   margin-left: auto;
 }
-
 .m-0{
   margin: 0;
+}
+.my-16 {
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 // Background
@@ -188,7 +191,11 @@
   background-color: inherit;
 }
 
-// Border radius
+// Border &  radius
+.border-none {
+  border: none;
+}
+
 .radiused {
   border-radius: $container-border-radius;
 }
@@ -235,5 +242,19 @@
 
   &::-webkit-scrollbar-thumb:active {
     background: $scrollbar-drag-clr;
+  }
+}
+
+.song-hover {
+  &:hover {
+    background-color: change-opacity($elem-clr-secondary, -0.8);
+    border-radius: 4px;
+  }
+}
+
+.station-hover {
+  &:hover {
+    background-color: change-opacity($elem-clr-secondary, -0.95);
+    border-radius: 4px;
   }
 }

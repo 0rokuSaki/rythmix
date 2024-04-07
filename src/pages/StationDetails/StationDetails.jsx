@@ -8,6 +8,7 @@ import { SongList } from "../../cmps/SongList/SongList";
 
 // Services
 import { stationService } from "../../services/station.service";
+import { SongSearchBar } from "../../cmps/SongSearchBar/SongSearchBar";
 
 export function StationDetails() {
   const [station, setStation] = useState(null);
@@ -27,6 +28,7 @@ export function StationDetails() {
   }
 
   if (!station) return <div>Loading...</div>;
+  const containsSongs = !!station.songs.length;
   return (
     <section className="station-details">
       <header className="station-details-header flex row align-center gap-20">
@@ -38,7 +40,8 @@ export function StationDetails() {
         </div>
       </header>
       <main>
-        <SongList songs={station.songs} />
+        {containsSongs && <SongList songs={station.songs} />}
+        {!containsSongs && <SongSearchBar />}
       </main>
     </section>
   );
