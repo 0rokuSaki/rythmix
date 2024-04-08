@@ -1,4 +1,5 @@
 import { utilService } from "../../services/util.service";
+import { Thumbnail } from "../Thumbnail";
 
 
 export function SongPreview({song = stationService.getEmptySong(), number = 0}) {
@@ -10,7 +11,7 @@ export function SongPreview({song = stationService.getEmptySong(), number = 0}) 
   return <article className="song-preview song-hover pv-8 fs13">
     <span className="flex align-center justify-center">{number}</span>
     <span className="title-wrapper flex row align-center justify-start gap-12">
-      <img className="br-4" src={song.imgUrl} alt="" />
+      <Thumbnail url={song.imgUrl} />
       <span className="flex column">
         <span className="song-name fs16">{songName}</span>
         <span>{authorName}</span>

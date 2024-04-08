@@ -29,10 +29,9 @@
     color: $elem-clr-primary;
   }
 
-  img {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
+  .thumbnail {
+    min-width: 40px;
+    max-width: 40px;
   }
 
   span {

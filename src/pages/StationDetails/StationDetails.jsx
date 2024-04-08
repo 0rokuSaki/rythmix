@@ -34,7 +34,7 @@ export function StationDetails() {
     <section className="station-details">
       <header className="station-details-header flex row align-center gap-20">
         {/* <StationImage url={station.songs[0]?.imgUrl} size="large" /> */}
-        <Thumbnail url={station.songs[0]?.imgUrl} />
+        <Thumbnail url={station.songs[0]?.imgUrl} additionalClasses={["box-shadow-extra-bold"]} />
         <div className="station-info-wrapper flex column">
           <h6 className="font-medium">Playlist</h6>
           <h2 className="font-black">{station.name}</h2>
