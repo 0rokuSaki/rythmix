@@ -1,91 +1,61 @@
-// .station-list{
 
-// }
-// .station-preview{
-//     display: grid;
-//     align-items: center;
-//     padding: 10px;
-//     margin: 10px 0;
-//     background-color: #181818;
-//     border-radius: 4px;
-//     // transition: background-color 0.3s; 
-    
-//     a {
-//         display: flex;
-//         align-items: center;
-//         text-decoration: none;
-//         color: inherit;
-//       }
-//     .station-image-container {
-//         margin-right: 10px;
-//     }
-//     h2 {
-//         font-size: 1rem;
-//         color: #fff;
-//         margin: 0;
-//         }
-        
-//     h4 {
-//         font-size: 0.8rem;
-//         color: $elem-clr-secondary;
-//         margin: 0;
-//         }
-// }
-  
   .station-preview {
 
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
-    gap: 10px; // Adjust the space between the image and the text
+    gap: 10px; 
     padding: 10px;
-    margin: 10px 0;
-    background-color: #181818;
     border-radius: 4px;
-    
-    a {
-      display: contents; // This will allow the grid layout to affect the children of the <a>
-    }
+  
+      &.station-active {
+        background-color: lighten($bg-clr-secondary, 7.5%);
+        border-radius: 4px;
+      }
+      
+      a {
+        display: contents; 
+      }
   
     .station-image-container {
-        width: 50px; // Adjust according to your image size
-        height: 50px; // Adjust according to your image size
-        background-color: #333; // Placeholder for the image background color
-        border-radius: 4px; // If you want rounded corners for images
-        overflow: hidden; // In case your images are larger than the container
+        width: 50px; 
+        height: 50px;
+        background-color: #333; 
+        border-radius: 4px; 
+        overflow: hidden;
     
       img {
         width: 100%;
         height: 100%;
-        object-fit:cover; // This will ensure that the images cover the area without distorting
+        object-fit:cover; 
       }
     }
   
     .station-info {
       display: flex;
       flex-direction: column;
-      gap: 5px; // Adjust the space between the text elements
+      gap: 5px; 
     }
   
     h2 {
       font-size: 0.9rem;
       color: #fff;
       margin: 3px;
-      grid-column: 2; // Position the h2 in the second column of the grid
+      grid-column: 2; 
     }
   
     h4 {
       font-size: 0.7rem;
       color: $elem-clr-secondary;
       margin: 3px;
-      grid-column: 2; // Position the h4 in the second column of the grid, under h2
+      grid-column: 2; 
     }
   
     h6 {
-      font-size: 0.9rem; // Adjust as needed
-      color: #fff; // Adjust as needed
+      font-size: 0.9rem; 
+      color: #fff; 
       margin: 0;
-      grid-column: 2; // Position the h6 in the second column of the grid, above h2
+      grid-column: 2;
     }
   }
   

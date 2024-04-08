@@ -13,10 +13,14 @@ export function MyLibraryPanel() {
 
   const navigate =useNavigate()
   const [stations, setStations] = useState([])
-  const [showStation, setShowStation] =useState(false)
+  const [isActiveId, setIsActiveId] = useState(null)
+
+  const handleStationClick = (id) => {
+    setIsActiveId(id);
+  };
 
   useEffect(() => {
-    loadStations();
+    loadStations()
   },[]);
 
   async function loadStations(){
@@ -29,13 +33,12 @@ export function MyLibraryPanel() {
   }
 
   async function onClickBtn(){
-    setShowStation(showStation =>!showStation)
     const station = stationService.getEmptyStation()
-    station.name =`My playlist #${stations.length}`
-    console.log(station.name)
+    station.name =`My Playlist #${stations.length+1}`
     try {
         const newStation =await stationService.save(station)
         setStations(prevStations => [...prevStations, newStation] )
+        setIsActiveId(newStation._id)
         navigate(`/station/${newStation._id}`)
     } catch(err){
         console.log('err',err)
@@ -60,14 +63,16 @@ export function MyLibraryPanel() {
           <LibraryIcon />
           <h3>Your Library</h3>
         </div>
-        {!showStation && <div className="create-list-container w-100">
+        {stations.length === 0 ?( <div className="create-list-container w-100">
           <h4>Create your first playlist</h4>
           <h5>It's easy, we'll help you</h5>
           <button onClick={onClickBtn}>
             Create playlist
           </button>
-        </div>}
-        {showStation && <StationList stations={stations} />}
+        </div>):( <StationList 
+              stations={stations} 
+              isActiveId={isActiveId}
+              onStationClick={handleStationClick} />)}
       </div>
     </section>
   );
