@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom"
 import { StationImage } from "../StationImage"
 import { TrashIcon } from "../icons/TrashIcon"
-export function StationPreview({station}) {
+export function StationPreview({station, isActiveId, onClick }) {
+  
+  const handleClick = (e) => {
+    e.stopPropagation()
+    onClick(station._id)
+  }
   return (
-    <article className="station-preview ">
-        <Link to={`/station/${station._id}`}>
+    <article className={`station-preview station-hover ${isActiveId ? 'station-active' : ''} bg-transparent`} onClick={() => onClick(station._id)}>
+        <Link to={`/station/${station._id}`} onClick={handleClick}>
             <div className="station-image-container">
                 <StationImage url={station.songs[0]?.imgUrl} size="small" />
             </div>

@@ -263,6 +263,13 @@
   }
 }
 
+.station-active{
+  &:active {
+    background-color: $bg-clr-primary;
+    border-radius: 4px;
+  }
+}
+
 .box-shadow-light {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
