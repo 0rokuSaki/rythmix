@@ -29,11 +29,9 @@ export function StationDetails() {
   }
 
   if (!station) return <div>Loading...</div>;
-  const containsSongs = !!station.songs.length;
   return (
     <section className="station-details">
       <header className="station-details-header flex row align-center gap-20">
-        {/* <StationImage url={station.songs[0]?.imgUrl} size="large" /> */}
         <Thumbnail url={station.songs[0]?.imgUrl} additionalClasses={["box-shadow-extra-bold"]} />
         <div className="station-info-wrapper flex column">
           <h6 className="font-medium">Playlist</h6>
@@ -42,8 +40,8 @@ export function StationDetails() {
         </div>
       </header>
       <main>
-        {containsSongs && <SongList songs={station.songs} />}
-        {!containsSongs && <SongSearchBar />}
+        <SongList songs={station.songs} />
+        <SongSearchBar />
       </main>
     </section>
   );
