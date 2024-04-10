@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 
 import { SearchIcon } from "../icons/SearchIcon";
@@ -53,10 +53,10 @@ export function SongSearchBar() {
     return [];
   }
 
-  const debounceSearch = utilService.debounce(async (query, maxResults) => {
+  const debounceSearch = useCallback(utilService.debounce(async (query, maxResults) => {
     const searchResult = await searchVideos(query, maxResults);
     setSongs(searchResult);
-  }, 500);
+  }, 500), []);
 
   return (
     <section className="song-search-bar">
