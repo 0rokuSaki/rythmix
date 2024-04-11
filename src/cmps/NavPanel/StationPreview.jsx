@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { StationImage } from "../StationImage"
 import { TrashIcon } from "../icons/TrashIcon"
+import { Thumbnail } from "../Thumbnail"
 export function StationPreview({station, isActiveId, onClick }) {
   
   const handleClick = (e) => {
@@ -8,10 +9,10 @@ export function StationPreview({station, isActiveId, onClick }) {
     onClick(station._id)
   }
   return (
-    <article className={`station-preview station-hover ${isActiveId ? 'station-active' : ''} bg-transparent`} onClick={() => onClick(station._id)}>
+    <article className={`station-preview station-hover  ${isActiveId ? 'station-active' : ''} bg-transparent`} onClick={() => onClick(station._id)}>
         <Link to={`/station/${station._id}`} onClick={handleClick}>
             <div className="station-image-container">
-                <StationImage url={station.songs[0]?.imgUrl} size="small" />
+                <Thumbnail url={station.songs[0]?.imgUrl} />
             </div>
             <div className="station-info">
                 <h2>{station.name}</h2>

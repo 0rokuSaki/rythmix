@@ -6,6 +6,9 @@
   justify-content: start;
 }
 .library-title{
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto 1fr auto;
   padding: 10px 0 15px 15px;
 
   h3{
