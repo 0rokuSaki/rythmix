@@ -6,17 +6,11 @@ import dotenv from "dotenv";
 // Load variables from .env file
 dotenv.config();
 
-const apiKey = process.env.API_KEY;
-
-if (!apiKey) {
-  throw new Error("API_KEY is missing in the environment variables. Please set it in your .env file.");
-}
-
 export default defineConfig({
   plugins: [
     react(),
     replace({
-      __API_KEY__: JSON.stringify(apiKey),
+      __API_KEY__: JSON.stringify(process.env.API_KEY),
     }),
   ],
 });

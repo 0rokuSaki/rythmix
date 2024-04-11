@@ -1,5 +1,12 @@
-export function SearchResultsList() {
-  return <section className="search-results-list">
-    <h2>Search Results List</h2>
-  </section>
+import { SearchResult } from "./SearchResult";
+
+export function SearchResultsList({ songs = [] }) {
+  return (
+    <section className="search-results-list">
+      {songs.map((song) => {
+        const {title, id, imgUrl} = song;
+        return <SearchResult key={song.id} title={title} id={id} imgUrl={imgUrl}/>
+      })}
+    </section>
+  );
 }
