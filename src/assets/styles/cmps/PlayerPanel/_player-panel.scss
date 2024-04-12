@@ -5,24 +5,55 @@
 
   @include for-narrow-layout {
     grid-column: 1 / -1;
-    display: flex;
-    height: 72px;
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr;
+    grid-template-rows: 72px;
   }
 
   @include for-normal-layout {
     grid-column: 1 / -1;
-    display: flex;
-    height: 72px;
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr;
+    grid-template-rows: 72px;
+  }
+
+  button {
+    padding: 0;
+    margin: 0;
+    width: 32px;
+    height: 32px;
+
+    svg {
+      fill: $elem-clr-secondary;
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  button:hover {
+    svg {
+      fill: white;
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  button:active {
+    width: 32px;
+    height: 32px;
+
+    svg {
+      fill: $elem-clr-secondary;
+      width: 16px;
+      height: 16px;
+    }
   }
 
   .playback-controls {
+    grid-column: 2;
+
     .playback-buttons {
       gap: 16px;
-
-      button {
-        padding: 0;
-        margin: 0;
-      }
 
       .play-btn {
         background-color: white;
@@ -44,6 +75,7 @@
         margin: 0;
 
         svg {
+          fill: black;
           width: 18px;
           height: 18px;
         }
@@ -59,49 +91,15 @@
           height: 16px;
         }
       }
-
-      
-      .next-btn,
-      .prev-btn,
-      .skip-forward-btn,
-      .skip-backward-btn {
-        width: 32px;
-        height: 32px;
-
-        svg {
-          fill: $elem-clr-secondary;
-          width: 16px;
-          height: 16px;
-        }
-      }
-
-      .next-btn:hover,
-      .prev-btn:hover,
-      .skip-forward-btn:hover,
-      .skip-backward-btn:hover {
-        svg {
-          fill: white;
-          width: 18px;
-          height: 18px;
-        }
-      }
-
-      .next-btn:active,
-      .prev-btn:active,
-      .skip-forward-btn:active,
-      .skip-backward-btn:active {
-        width: 32px;
-        height: 32px;
-
-        svg {
-          fill: $elem-clr-secondary;
-          width: 16px;
-          height: 16px;
-        }
-      }
     }
 
     .progress-bar {
     }
+  }
+
+  .volume-controls {
+    grid-column: 3;
+
+    
   }
 }
