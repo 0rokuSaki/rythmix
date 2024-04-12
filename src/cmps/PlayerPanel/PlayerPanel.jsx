@@ -1,5 +1,22 @@
+import { useRef, useState } from "react";
+import ReactPlayer from "react-player";
+
+import { PlayerControls } from "./PlayerConrols";
+
 export function PlayerPanel() {
-  return <section className="player-panel flex align-center justify-center">
-    <h2>PlayerPanel</h2>
-  </section>
+  const [isPlaying, setIsPlaying] = useState(false);
+  const playerRef = useRef(null);
+
+  const handleTogglePlay = () => {
+    setIsPlaying((prevIsPlaying) => !prevIsPlaying);
+  };
+
+  const url = "https://www.youtube.com/watch?v=pWO718iy5mY";
+
+  return (
+    <section className="player-panel flex align-center justify-center">
+      <PlayerControls isPlaying={isPlaying}/>
+      <ReactPlayer ref={playerRef} url={url} width="0" height="0" playing={isPlaying} controls={false} />
+    </section>
+  );
 }
