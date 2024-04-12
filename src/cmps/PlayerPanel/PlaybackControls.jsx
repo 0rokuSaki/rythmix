@@ -5,7 +5,7 @@ import { NextIcon } from "../icons/NextIcon";
 import { SkipBackwardIcon } from "../icons/SkipBackwardIcon";
 import { SkipForwardIcon } from "../icons/SkipForwardIcon";
 
-export function PlayerControls({ isPlaying }) {
+export function PlaybackControls({ isPlaying }) {
   return (
     <div className="playback-controls flex column align center justify-center">
       <div className="playback-buttons flex row align-center justify-center">

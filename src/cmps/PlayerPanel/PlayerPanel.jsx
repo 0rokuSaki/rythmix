@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import ReactPlayer from "react-player";
 
-import { PlayerControls } from "./PlayerConrols";
+import { PlayerControls } from "./PlaybackControls";
 
 export function PlayerPanel() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -15,7 +15,7 @@ export function PlayerPanel() {
 
   return (
     <section className="player-panel flex align-center justify-center">
-      <PlayerControls isPlaying={isPlaying}/>
+      <PlaybackControls isPlaying={isPlaying}/>
       <ReactPlayer ref={playerRef} url={url} width="0" height="0" playing={isPlaying} controls={false} />
     </section>
   );
