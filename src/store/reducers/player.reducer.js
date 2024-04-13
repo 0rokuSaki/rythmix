@@ -1,7 +1,7 @@
 export const SET_CURR_SONG = "SET_CURR_SONG";
 
 const initialState = {
-  currSong,
+  currSongId: null,
 };
 
 export function playerReducer(state = initialState, cmd = {}) {
@@ -9,7 +9,7 @@ export function playerReducer(state = initialState, cmd = {}) {
     case SET_CURR_SONG:
       return {
         ...state,
-        currSong: cmd.currSong,
+        currSongId: cmd.songId,
       };
     default:
       return state;

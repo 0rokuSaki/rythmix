@@ -1,16 +1,27 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import ReactPlayer from "react-player";
+
+import { setLastPlayedSong } from "../../store/actions/player.action";
 
 import { PlaybackControls } from "./PlaybackControls";
 import { VolumeControls } from "./VolumeControls";
 
 export function Player() {
+  const currSongId = useSelector((storeState) => storeState.playerModule.currSongId);
+
   const [ready, setReady] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [elapsedTime, setElapsedTime] = useState(0);
   const [volume, setVolume] = useState(1.0);
   const playerRef = useRef(null);
+
+  useEffect(() => {
+    if (!currSongId) {
+      setLastPlayedSong();
+    }
+  }, []);
 
   function handlePlayToggle() {
     setIsPlaying((prevIsPlaying) => !prevIsPlaying);
@@ -22,8 +33,6 @@ export function Player() {
     }
   }
 
-  const url = "https://www.youtube.com/watch?v=pWO718iy5mY";
-
   return (
     <section className="player-panel">
       <PlaybackControls
@@ -34,10 +43,10 @@ export function Player() {
         handlePlayToggle={handlePlayToggle}
         handleSetTime={handleSetTime}
       />
-      <VolumeControls volume={volume} setVolume={setVolume}/>
+      <VolumeControls volume={volume} setVolume={setVolume} />
       <ReactPlayer
         ref={playerRef}
-        url={url}
+        url={`https://www.youtube.com/watch?v=${currSongId}`}
         width="0"
         height="0"
         playing={isPlaying}
