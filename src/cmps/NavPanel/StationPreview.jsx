@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom"
-import { StationImage } from "../StationImage"
-import { TrashIcon } from "../icons/TrashIcon"
 import { Thumbnail } from "../Thumbnail"
 export function StationPreview({station, isActiveId, onClick }) {
   
@@ -18,11 +16,6 @@ export function StationPreview({station, isActiveId, onClick }) {
                 <h2>{station.name}</h2>
                 <h4>Playlist • {station.createdBy.fullname} </h4>
             </div>
-            {/* <div className= "remove-icon">
-              <Link to ="/station">
-                <TrashIcon onClick={() => onRemoveStation(station._id)} />
-              </Link>
-            </div> */}
         </Link>
 
     </article>

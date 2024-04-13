@@ -2,7 +2,6 @@
 import { StationPreview } from "./StationPreview"
 
 export function StationList({stations =[], isActiveId, onStationClick, onContextMenu  }) {
-  console.log(isActiveId)
 
   return (
     <ul className="station-list m-0 p-0">

@@ -13,6 +13,7 @@ import { RclickModal } from "../RclickModal";
 import { TrashIcon } from "../icons/TrashIcon";
 import { ContextMenu } from "../ContextMenu";
 import { AddStationIcon } from "../icons/AddStationIcon";
+import { StationEdit } from "../../pages/StationEdit";
 
 export function MyLibraryPanel() {
 
@@ -23,9 +24,18 @@ export function MyLibraryPanel() {
   const [stations, setStations] = useState([])
   const [isActiveId, setIsActiveId] = useState(null)
   const [contextMenu, setContextMenu] = useState(null)
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false)
+  const [currentStationToEdit, setCurrentStationToEdit] = useState(null)
+
+  const handleEditStation = (stationId) => {
+    // Find the station to edit
+    const station = stations.find(st => st._id === stationId);
+    setCurrentStationToEdit(station);
+    setIsEditModalOpen(true);
+  };
 
   const handleContextMenu = (event, station) => {
-
+    
     event.preventDefault()
     setContextMenu({
       isVisible: true,
@@ -33,6 +43,20 @@ export function MyLibraryPanel() {
       y: event.clientY,
       station: station,
     })
+  }
+
+  async function handleSaveStation (updatedStation) {
+    try {
+      const savedStation = await stationService.save(updatedStation);
+      setStations(prevStations => prevStations.map(station => station._id === savedStation._id ? savedStation : station));
+    } catch (error) {
+      console.error('Error saving station:', error);
+      // Handle error, could not save the changes
+    }
+  };
+
+  const handleCloseContextMenu = () => {
+    setContextMenu(null)
   }
   
   useEffect(() => {
@@ -69,19 +93,15 @@ export function MyLibraryPanel() {
     
   }
 
-  const handleCloseContextMenu = () => {
-    setContextMenu(null)
-  }
 
   async function handleRemoveStation (stationId){
     try {
       await stationService.remove(stationId)
       setStations(prevStations => prevStations.filter(station => station._id !== stationId))
-    } catch (err) {
-      console.error('Error removing station:', err)
       
+    } catch (err) {
+      console.error('Error removing station:', err) 
     }
-    
   }
 
   const handleStationClick = (id) => {
@@ -113,8 +133,19 @@ export function MyLibraryPanel() {
       <ContextMenu
         x={contextMenu.x}
         y={contextMenu.y}
+        isActiveId={isActiveId}
         onEdit={() => handleEditStation(contextMenu.station._id)}
         onRemove={() => handleRemoveStation(contextMenu.station._id)}
+        onAdd={() => onAddStation()}
+
+      />
+    )}
+    {isEditModalOpen && (
+      <StationEdit
+        show={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        station={currentStationToEdit}
+        onSave={handleSaveStation}
       />
     )}
     </section>
