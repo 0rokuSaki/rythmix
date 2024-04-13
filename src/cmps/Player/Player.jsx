@@ -6,6 +6,7 @@ import { setLastPlayedSong } from "../../store/actions/player.action";
 
 import { PlaybackControls } from "./PlaybackControls";
 import { VolumeControls } from "./VolumeControls";
+import { SongInfo } from "./SongInfo";
 
 export function Player() {
   const currSongId = useSelector((storeState) => storeState.playerModule.currSongId);
@@ -35,6 +36,7 @@ export function Player() {
 
   return (
     <section className="player-panel">
+      <SongInfo songId={currSongId}/>
       <PlaybackControls
         ready={ready}
         isPlaying={isPlaying}

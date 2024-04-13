@@ -11,6 +11,5 @@ export function setCurrSong(songId) {
 
 export function setLastPlayedSong() {
   const songId = utilService.loadFromStorage(STORAGE_KEY);
-  console.log(songId);
   store.dispatch({ type: SET_CURR_SONG, songId });
 }

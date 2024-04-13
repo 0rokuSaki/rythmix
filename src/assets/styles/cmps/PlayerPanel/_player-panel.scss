@@ -1,6 +1,9 @@
 .player-panel {
   @include for-mobile-layout {
-    display: none;
+    .song-info,
+    .volume-controls {
+      display: none;
+    }
   }
 
   @include for-narrow-layout {
@@ -8,6 +11,11 @@
     display: grid;
     grid-template-columns: 2fr 3fr 2fr;
     grid-template-rows: 72px;
+
+    .song-info,
+    .volume-controls {
+      display: flex;
+    }
   }
 
   @include for-normal-layout {
@@ -15,6 +23,11 @@
     display: grid;
     grid-template-columns: 2fr 3fr 2fr;
     grid-template-rows: 72px;
+
+    .song-info,
+    .volume-controls {
+      display: flex;
+    }
   }
 
   button {
@@ -80,6 +93,33 @@
     }
   }
 
+  .song-info {
+    grid-column: 1 / span 1;
+    gap: 16px;
+    padding-left: 8px;
+    margin-right: 16px;
+    overflow: hidden;
+    
+    .thumbnail {
+      min-width: 56px;
+      min-height: 56px;
+      max-width: 56px;
+      max-height: 56px;
+    }
+    
+    .title-wrapper {
+      gap: 3px;
+      
+      span {
+        white-space: nowrap;
+      }
+
+      .author-title {
+        color: $elem-clr-secondary;
+      }
+    }
+  }
+
   .playback-controls {
     grid-column: 2;
     gap: 2px;
@@ -127,7 +167,12 @@
 
     .progress {
       gap: 10px;
-      
+
+      .elapsed,
+      .duration {
+        color: $elem-clr-secondary;
+      }
+
       .slider {
         height: 5px;
       }
