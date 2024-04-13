@@ -8,6 +8,7 @@ export const utilService = {
   loadFromStorage,
   getAssetSrc,
   formatDate,
+  formatSeconds,
 };
 
 function makeId(length = 6) {
@@ -125,4 +126,32 @@ function formatDate(timestamp) {
 
   // Format the date string
   return `${month} ${day}, ${year}`;
+}
+
+/**
+ * Converts seconds to a formatted time string.
+ * If hours are zero, returns MM:SS format, otherwise returns HH:MM:SS format.
+ * @param {number} seconds - The number of seconds to convert.
+ * @returns {string} The formatted time string.
+ */
+function formatSeconds(seconds) {
+  // Calculate hours, minutes, and remaining seconds
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const remainingSeconds = Math.floor(seconds % 60);
+
+  // If hours are zero, return MM:SS format
+  if (hours === 0) {
+      const formattedMinutes = minutes < 10 ? `${minutes}` : `${minutes}`;
+      const formattedSeconds = remainingSeconds < 10 ? `0${remainingSeconds}` : `${remainingSeconds}`;
+      return `${formattedMinutes}:${formattedSeconds}`;
+  }
+
+  // Format each part with leading zero if needed
+  const formattedHours = hours < 10 ? `0${hours}` : `${hours}`;
+  const formattedMinutes = minutes < 10 ? `${minutes}` : `${minutes}`;
+  const formattedSeconds = remainingSeconds < 10 ? `0${remainingSeconds}` : `${remainingSeconds}`;
+
+  // Return the formatted string in HH:MM:SS format
+  return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
 }
