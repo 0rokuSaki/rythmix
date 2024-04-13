@@ -2,10 +2,9 @@ import { useState } from "react";
 
 import Slider from "@mui/material/Slider";
 
-import { VolumeIcon } from "../icons/VolumeIcon";
+import { DynamicVolumeIcon } from "../icons/DynamicVolumeIcon";
 
-export function VolumeControls() {
-  const [volume, setVolume] = useState(100);
+export function VolumeControls({ volume, setVolume }) {
   const [prevVolume, setPrevVolume] = useState(volume);
 
   function onVolumeClick() {
@@ -24,10 +23,13 @@ export function VolumeControls() {
   return (
     <div className="volume-controls flex row align-center justify-end">
       <button className="volume-btn flex align-center justify-center" onClick={onVolumeClick}>
-        <VolumeIcon volume={volume} />
+        <DynamicVolumeIcon volume={volume} />
       </button>
       <Slider
         className="slider"
+        min={0.0}
+        max={1.0}
+        step={0.01}
         value={volume}
         size="medium"
         onChange={handleChange}

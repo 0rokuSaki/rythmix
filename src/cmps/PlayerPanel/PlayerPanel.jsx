@@ -9,6 +9,7 @@ export function PlayerPanel() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [elapsedTime, setElapsedTime] = useState(0);
+  const [volume, setVolume] = useState(1.0);
   const playerRef = useRef(null);
 
   function handlePlayToggle() {
@@ -19,7 +20,7 @@ export function PlayerPanel() {
     if (desiredTime >= 0 || desiredTime <= duration) {
       playerRef.current.seekTo(desiredTime);
     }
-  };
+  }
 
   const url = "https://www.youtube.com/watch?v=pWO718iy5mY";
 
@@ -33,14 +34,14 @@ export function PlayerPanel() {
         handlePlayToggle={handlePlayToggle}
         handleSetTime={handleSetTime}
       />
-      <VolumeControls />
+      <VolumeControls volume={volume} setVolume={setVolume}/>
       <ReactPlayer
         ref={playerRef}
         url={url}
         width="0"
         height="0"
         playing={isPlaying}
-        controls={false}
+        volume={volume}
         onReady={() => setReady(true)}
         onDuration={(duration) => setDuration(duration)}
         onProgress={({ playedSeconds }) => setElapsedTime(playedSeconds)}
