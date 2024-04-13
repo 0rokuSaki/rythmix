@@ -13,7 +13,7 @@ import { StationDetails } from "./pages/StationDetails/StationDetails";
 
 // Components
 import { NavPanel } from "./cmps/NavPanel/NavPanel";
-import { PlayerPanel } from "./cmps/PlayerPanel/PlayerPanel";
+import { Player } from "./cmps/Player/Player";
 import { TopBar } from "./cmps/TopBar/TopBar";
 
 export function App() {
@@ -31,7 +31,7 @@ export function App() {
               </Routes>
             </div>
           </main>
-          <PlayerPanel />
+          <Player />
         </section>
       </Router>
     </Provider>

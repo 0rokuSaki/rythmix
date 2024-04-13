@@ -4,7 +4,7 @@ import ReactPlayer from "react-player";
 import { PlaybackControls } from "./PlaybackControls";
 import { VolumeControls } from "./VolumeControls";
 
-export function PlayerPanel() {
+export function Player() {
   const [ready, setReady] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
