@@ -60,6 +60,7 @@ async function getSongInfo(songId) {
     return {
       songTitle: snippet.title,
       authorTitle: snippet.channelTitle,
+      thumbnailUrl: snippet.thumbnails.medium.url,
     };
   } catch (error) {
     console.error("Error:", error);

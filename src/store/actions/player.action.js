@@ -1,5 +1,5 @@
 import { store } from "../store";
-import { SET_CURR_SONG } from "../reducers/player.reducer";
+import { SET_CURR_SONG, TOGGLE_PLAY } from "../reducers/player.reducer";
 import { utilService } from "../../services/util.service";
 
 const STORAGE_KEY = "LAST_PLAYED_SONG_ID";
@@ -12,4 +12,8 @@ export function setCurrSong(songId) {
 export function setLastPlayedSong() {
   const songId = utilService.loadFromStorage(STORAGE_KEY);
   store.dispatch({ type: SET_CURR_SONG, songId });
+}
+
+export function togglePlay() {
+  store.dispatch({ type: TOGGLE_PLAY });
 }

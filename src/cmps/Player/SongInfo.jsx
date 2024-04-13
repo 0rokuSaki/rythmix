@@ -5,11 +5,12 @@ import { searchService } from "../../services/search.service";
 export function SongInfo({ songId }) {
   const [songTitle, setSongTitle] = useState("");
   const [authorTitle, setAuthorTitle] = useState("");
-
-  const imgUrl = `https://i.ytimg.com/vi/${songId}/mqdefault.jpg`;
+  const [thumbnailUrl, setThumbnailUrl] = useState("");
 
   useEffect(() => {
-    getSongDetails();
+    if (songId) {
+      getSongDetails();
+    }
   }, [songId])
 
   async function getSongDetails() {
@@ -17,12 +18,13 @@ export function SongInfo({ songId }) {
     if (songInfo) {
       setSongTitle(songInfo.songTitle);
       setAuthorTitle(songInfo.authorTitle);
+      setThumbnailUrl(songInfo.thumbnailUrl);
     }
   }
 
   return (
     <div className="song-info flex row align-center">
-      <Thumbnail url={imgUrl} />
+      <Thumbnail url={thumbnailUrl} />
       <div className="title-wrapper flex column">
         <span className="song-title fs14">{songTitle}</span>
         <span className="author-title fs12">{authorTitle}</span>

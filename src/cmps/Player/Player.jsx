@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import ReactPlayer from "react-player";
 
-import { setLastPlayedSong } from "../../store/actions/player.action";
+import { setLastPlayedSong, togglePlay } from "../../store/actions/player.action";
 
 import { PlaybackControls } from "./PlaybackControls";
 import { VolumeControls } from "./VolumeControls";
@@ -10,9 +10,9 @@ import { SongInfo } from "./SongInfo";
 
 export function Player() {
   const currSongId = useSelector((storeState) => storeState.playerModule.currSongId);
+  const isPlaying = useSelector((storeState) => storeState.playerModule.isPlaying);
 
   const [ready, setReady] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [elapsedTime, setElapsedTime] = useState(0);
   const [volume, setVolume] = useState(1.0);
@@ -25,7 +25,7 @@ export function Player() {
   }, []);
 
   function handlePlayToggle() {
-    setIsPlaying((prevIsPlaying) => !prevIsPlaying);
+    togglePlay();
   }
 
   function handleSetTime(desiredTime) {
