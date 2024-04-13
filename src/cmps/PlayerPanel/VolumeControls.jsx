@@ -27,7 +27,7 @@ export function VolumeControls() {
         <VolumeIcon volume={volume} />
       </button>
       <Slider
-        className="volume-slider"
+        className="slider"
         value={volume}
         size="medium"
         onChange={handleChange}

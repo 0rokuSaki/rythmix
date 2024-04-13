@@ -1,3 +1,5 @@
+import Slider from "@mui/material/Slider";
+
 import { PlayIcon } from "../icons/PlayIcon";
 import { PauseIcon } from "../icons/PauseIcon";
 import { PrevIcon } from "../icons/PrevIcon";
@@ -26,7 +28,16 @@ export function PlaybackControls({ isPlaying }) {
           <SkipForwardIcon />
         </button>
       </div>
-      <div className="progress-bar"></div>
+      <div className="progress flex row align-center justify-center">
+        <span className="elapsed fs13">6:00</span>
+        <Slider
+          className="slider"
+          value={50}
+          onChange={() => {}}
+          aria-labelledby="continuous-slider"
+        />
+        <span className="duration fs13">12:00</span>
+      </div>
     </div>
   );
 }

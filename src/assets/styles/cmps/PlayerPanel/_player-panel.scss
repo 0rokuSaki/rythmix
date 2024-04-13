@@ -49,8 +49,40 @@
     }
   }
 
+  .slider {
+    .MuiSlider-rail {
+      background-color: lightgray;
+    }
+
+    .MuiSlider-track {
+      border: none;
+      background-color: white;
+    }
+
+    .MuiSlider-thumb {
+      box-shadow: none;
+      width: 0;
+      height: 0;
+    }
+  }
+
+  .slider:hover {
+    .MuiSlider-track {
+      border: none;
+      background-color: $elem-clr-accent;
+    }
+
+    .MuiSlider-thumb {
+      background-color: white;
+      box-shadow: none;
+      width: 12px;
+      height: 12px;
+    }
+  }
+
   .playback-controls {
     grid-column: 2;
+    gap: 2px;
 
     .playback-buttons {
       gap: 16px;
@@ -60,7 +92,7 @@
         border-radius: 50%;
         width: 32px;
         height: 32px;
-        margin: 0 1px;
+        margin: 1px;
 
         svg {
           fill: black;
@@ -84,7 +116,7 @@
       .play-btn:active {
         width: 32px;
         height: 32px;
-        margin: 0 1px;
+        margin: 1px;
 
         svg {
           width: 16px;
@@ -93,7 +125,12 @@
       }
     }
 
-    .progress-bar {
+    .progress {
+      gap: 10px;
+      
+      .slider {
+        height: 5px;
+      }
     }
   }
 
@@ -107,37 +144,8 @@
       z-index: 1;
     }
 
-    .volume-slider {
+    .slider {
       width: 93px;
-
-      .MuiSlider-rail {
-        background-color: lightgray;
-      }
-
-      .MuiSlider-track {
-        border: none;
-        background-color: white;
-      }
-
-      .MuiSlider-thumb {
-        box-shadow: none;
-        width: 0;
-        height: 0;
-      }
-    }
-
-    .volume-slider:hover {
-      .MuiSlider-track {
-        border: none;
-        background-color: $elem-clr-accent;
-      }
-
-      .MuiSlider-thumb {
-        background-color: white;
-        box-shadow: none;
-        width: 12px;
-        height: 12px;
-      }
     }
   }
 }
