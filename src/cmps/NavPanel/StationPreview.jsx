@@ -10,7 +10,7 @@ export function StationPreview({station, isActiveId, onClick }) {
     <article className={`station-preview station-hover  ${isActiveId ? 'station-active' : ''} bg-transparent`} onClick={() => onClick(station._id)}>
         <Link to={`/station/${station._id}`} onClick={handleClick}>
             <div className="station-image-container">
-                <Thumbnail url={station.songs[0]?.imgUrl} />
+                <Thumbnail url={station.imgUrl} />
             </div>
             <div className="station-info">
                 <h2>{station.name}</h2>

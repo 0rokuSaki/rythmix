@@ -17,9 +17,6 @@ import { StationEdit } from "../../pages/StationEdit";
 
 export function MyLibraryPanel() {
 
-  const iconsSvg=[TrashIcon]
-  const listOfOptions =['Delete','Edit']
-
   const navigate =useNavigate()
   const [stations, setStations] = useState([])
   const [isActiveId, setIsActiveId] = useState(null)
@@ -50,10 +47,9 @@ export function MyLibraryPanel() {
       const savedStation = await stationService.save(updatedStation);
       setStations(prevStations => prevStations.map(station => station._id === savedStation._id ? savedStation : station));
     } catch (error) {
-      console.error('Error saving station:', error);
-      // Handle error, could not save the changes
+      console.error('Error saving station:', error)
     }
-  };
+  }
 
   const handleCloseContextMenu = () => {
     setContextMenu(null)
@@ -93,7 +89,6 @@ export function MyLibraryPanel() {
     
   }
 
-
   async function handleRemoveStation (stationId){
     try {
       await stationService.remove(stationId)
@@ -107,6 +102,12 @@ export function MyLibraryPanel() {
   const handleStationClick = (id) => {
     setIsActiveId(id)
   }
+ 
+  function onUploaded(imgUrl) {
+    setStations(prevStations => prevStations.map(station => 
+        station._id === currentStationToEdit._id ? { ...station, imgUrl } : station
+    ));
+}
   
   return (
     <section className="my-library-panel overflow-hidden">
@@ -146,11 +147,10 @@ export function MyLibraryPanel() {
         onClose={() => setIsEditModalOpen(false)}
         station={currentStationToEdit}
         onSave={handleSaveStation}
+        onUploaded={onUploaded}
       />
     )}
     </section>
 
   )
-
-
 }
