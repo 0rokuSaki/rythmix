@@ -31,7 +31,6 @@ export function VolumeControls({ volume, setVolume }) {
         max={1.0}
         step={0.01}
         value={volume}
-        size="medium"
         onChange={handleChange}
         aria-labelledby="continuous-slider"
       />

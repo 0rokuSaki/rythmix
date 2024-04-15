@@ -30,6 +30,7 @@ export function Player() {
 
   function handleSetTime(desiredTime) {
     if (desiredTime >= 0 || desiredTime <= duration) {
+      setElapsedTime(desiredTime);
       playerRef.current.seekTo(desiredTime);
     }
   }

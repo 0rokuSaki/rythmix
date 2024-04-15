@@ -54,7 +54,7 @@ export function PlaybackControls({ ready, isPlaying, duration, elapsedTime, hand
         </button>
       </div>
       <div className="progress flex row align-center justify-center">
-        <span className="elapsed fs13">{utilService.formatSeconds(elapsedTime)}</span>
+        <span className="elapsed fs12">{utilService.formatSeconds(elapsedTime)}</span>
         <Slider
           className="slider"
           min={0.0}
@@ -64,7 +64,7 @@ export function PlaybackControls({ ready, isPlaying, duration, elapsedTime, hand
           onChange={handleSliderChange}
           aria-labelledby="continuous-slider"
         />
-        <span className="duration fs13">{utilService.formatSeconds(duration)}</span>
+        <span className="duration fs12">{utilService.formatSeconds(duration)}</span>
       </div>
     </div>
   );
