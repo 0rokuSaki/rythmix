@@ -36,11 +36,10 @@ export function PlaybackControls({ ready, isPlaying, duration, elapsedTime, hand
 
   function handlePrevClick() {
     const SECONDS_THRESHOLD = 2;
+    handleSetTime(0);
+    setProgress(0);
     if (progress * duration < SECONDS_THRESHOLD) {
       playPrev();
-    } else {
-      handleSetTime(0);
-      setProgress(0);
     }
   }
 
