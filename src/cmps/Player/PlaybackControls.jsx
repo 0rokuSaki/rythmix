@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Slider from "@mui/material/Slider";
 
+import { togglePlay, playNext, playPrev } from "../../store/actions/player.action";
 import { utilService } from "../../services/util.service";
 
 import { PlayIcon } from "../icons/PlayIcon";
@@ -10,11 +11,11 @@ import { NextIcon } from "../icons/NextIcon";
 import { SkipBackwardIcon } from "../icons/SkipBackwardIcon";
 import { SkipForwardIcon } from "../icons/SkipForwardIcon";
 
-export function PlaybackControls({ ready, isPlaying, duration, elapsedTime, handlePlayToggle, handleSetTime }) {
+export function PlaybackControls({ ready, isPlaying, duration, elapsedTime, handleSetTime }) {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    if (duration && elapsedTime) {
+    if (duration) {
       setProgress(elapsedTime / duration);
     }
   }, [ready, elapsedTime]);
@@ -33,20 +34,30 @@ export function PlaybackControls({ ready, isPlaying, duration, elapsedTime, hand
     setProgress(newElapsedTime / duration);
   }
 
+  function handlePrevClick() {
+    const SECONDS_THRESHOLD = 2;
+    if (progress * duration < SECONDS_THRESHOLD) {
+      playPrev();
+    } else {
+      handleSetTime(0);
+      setProgress(0);
+    }
+  }
+
   return (
     <div className="playback-controls flex column align center justify-center">
       <div className="playback-buttons flex row align-center justify-center">
         <button className="skip-backward-btn flex row align-center justify-center" onClick={() => handleSkip(-15)}>
           <SkipBackwardIcon />
         </button>
-        <button className="prev-btn flex row align-center justify-center">
+        <button className="prev-btn flex row align-center justify-center" onClick={handlePrevClick}>
           <PrevIcon />
         </button>
-        <button className="play-btn flex row align-center justify-center" onClick={handlePlayToggle}>
+        <button className="play-btn flex row align-center justify-center" onClick={() => togglePlay()}>
           {isPlaying && <PauseIcon />}
           {!isPlaying && <PlayIcon />}
         </button>
-        <button className="next-btn flex row align-center justify-center">
+        <button className="next-btn flex row align-center justify-center" onClick={() => playNext()}>
           <NextIcon />
         </button>
         <button className="skip-forward-btn flex row align-center justify-center" onClick={() => handleSkip(15)}>
